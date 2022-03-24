@@ -1,0 +1,30 @@
+@use '../base/root';
+$radius: 5rem;
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    border-right: 1px solid var(--border-color);
+    box-shadow: 4px 0px 20px #8d8d8d63;
+    width: 35vmin;
+    min-height: 100vh;
+    .side-items {
+        margin: 0;
+        padding: 0.4rem 0.6rem 0rem 0rem;
+        list-style: none;
+        .item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            border-radius: 0 $radius $radius 0;
+            cursor: pointer;
+            &.selected {
+                background-color: var(--border-color);
+            }
+            &:hover {
+                background-color: lighten($color: root.$border-color, $amount: 5%);
+            }
+        }
+    }
+}
