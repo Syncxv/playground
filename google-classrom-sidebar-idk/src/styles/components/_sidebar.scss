@@ -44,6 +44,23 @@ $sidebarWidth: 35vmin;
             &:hover {
                 background-color: lighten($color: root.$border-color, $amount: 5%);
             }
+            .icon-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 2rem;
+                width: 2rem;
+                .thing {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 2rem;
+                    width: 2rem;
+                    background-color: #2a2a90;
+                    color: white;
+                    border-radius: 50%;
+                }
+            }
         }
     }
 }
