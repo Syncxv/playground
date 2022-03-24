@@ -7,7 +7,21 @@
     .menu-wrapper {
         display: flex;
         align-items: center;
-        gap: 0.4rem;
+        gap: 1rem;
+        .current-class {
+            color: var(--text-normal);
+            .idk {
+                color: var(--text-muted);
+            }
+            text-decoration: none;
+            &:hover {
+                color: rgb(86, 86, 255);
+                .idk {
+                    color: var(--text-muted);
+                }
+                text-decoration: underline;
+            }
+        }
         .menu {
             --opacity: 0;
             position: relative;
@@ -51,7 +65,7 @@
         list-style: none;
         .thingy {
             position: relative;
-            padding: 1rem;
+            padding: 1.5rem 1rem;
             cursor: pointer;
             transition: background-color 120ms ease-in;
             &:hover {
