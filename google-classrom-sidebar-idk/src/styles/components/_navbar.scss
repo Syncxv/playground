@@ -73,6 +73,9 @@
             &:hover {
                 background-color: var(--border-color);
             }
+            &.selected:hover {
+                background-color: rgba(86, 86, 255, 0.2);
+            }
             &.selected::after {
                 content: '';
                 position: absolute;
