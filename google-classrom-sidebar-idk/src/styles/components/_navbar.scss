@@ -17,4 +17,30 @@
             background-color: rgb(73, 73, 73);
         }
     }
+
+    .items {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        .thingy {
+            position: relative;
+            padding: 1rem;
+            cursor: pointer;
+            transition: background-color 120ms ease-in;
+            &:hover {
+                background-color: #e0e0e0;
+            }
+            &.selected::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 5px;
+                width: 100%;
+                background-color: rgb(86, 86, 255);
+                border-radius: 10px 10px 0 0;
+            }
+        }
+    }
 }
