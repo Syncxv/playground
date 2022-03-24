@@ -1,5 +1,8 @@
+$text-normal: rgb(41, 41, 41);
+$text-muted: rgb(80, 80, 80);
+$border-color: #e0e0e0;
 :root {
-    --text-normal: rgb(41, 41, 41);
-    --text-muted: rgb(80, 80, 80);
-    --border-color: #e0e0e0;
+    --text-normal: #{$text-normal};
+    --text-muted: #{$text-muted};
+    --border-color: #{$border-color};
 }
