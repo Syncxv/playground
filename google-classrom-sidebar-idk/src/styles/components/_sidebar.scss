@@ -26,6 +26,12 @@ $sidebarWidth: 35vmin;
         margin: 0;
         padding: 0.4rem 0.6rem 0rem 0rem;
         list-style: none;
+        .subheading {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-left: 1.2rem;
+        }
         .item {
             display: flex;
             gap: 1rem;
