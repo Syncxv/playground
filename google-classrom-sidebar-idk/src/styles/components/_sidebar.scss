@@ -1,5 +1,6 @@
 @use '../base/root';
 $radius: 5rem;
+$sidebarWidth: 35vmin;
 .sidebar {
     position: absolute;
     top: 0;
@@ -7,8 +8,20 @@ $radius: 5rem;
     background-color: white;
     border-right: 1px solid var(--border-color);
     box-shadow: 4px 0px 20px #8d8d8d63;
-    width: 35vmin;
+    width: $sidebarWidth;
+    transform: translateX(calc($sidebarWidth * -1));
     min-height: 100vh;
+    transition: transform 200ms ease;
+    &.opened {
+        transform: translateX(0);
+        .bruh {
+            position: fixed;
+            height: 100vh;
+            width: calc(100vw - $sidebarWidth);
+            transform: translateX($sidebarWidth);
+            inset: 0;
+        }
+    }
     .side-items {
         margin: 0;
         padding: 0.4rem 0.6rem 0rem 0rem;
