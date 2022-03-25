@@ -33,6 +33,9 @@ gulp.task('ts', () => {
         .src(['./src/ts/**/*'])
         .pipe(webpack(require('./webpack.config.js')))
         .pipe(gulp.dest('./dist/assets/js'))
+        .on('end', () => {
+            browserSync.reload()
+        })
 })
 gulp.task('browsersync', done => {
     browserSync.init({
