@@ -58,5 +58,5 @@ gulp.task('watch', () => {
 })
 
 gulp.task('clean', () => {
-    return del(['./tmp/**/*'], { dot: true })
+    return del(['./dist/**/*'], { dot: true })
 })
