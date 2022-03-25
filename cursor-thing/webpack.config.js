@@ -23,7 +23,15 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
+        })
+    ],
     resolve: {
-        modules: ['./src/ts', 'node_modules']
+        modules: ['./src/ts/*', 'node_modules'],
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
     }
 }
