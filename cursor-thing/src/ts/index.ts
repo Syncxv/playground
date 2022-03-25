@@ -1,1 +1,7 @@
-console.log('HI 3')
+const cursor = document.querySelector<HTMLDivElement>('.cursor')!
+
+console.log(cursor)
+
+addEventListener('mousemove', e => {
+    console.log(e.x, e.y)
+})
