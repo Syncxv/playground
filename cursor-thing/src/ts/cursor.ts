@@ -7,6 +7,10 @@ interface Options {
     speed: number
     skewingDelta: number
     skewingDeltaMax: number
+    innerClassName: string
+    textClassName: string
+    mediaClassName: string
+    mediaBoxClassName: string
 }
 interface AllEvents {
     mousemove?: (e: MouseEvent) => any
@@ -17,6 +21,11 @@ interface Setter {
 export default class Cursor {
     el: HTMLDivElement
     container: HTMLElement
+    inner: HTMLDivElement
+    text: HTMLDivElement
+    media: HTMLDivElement
+    mediaBox: HTMLDivElement
+
     options: Options
     setter: Setter
     event: AllEvents
@@ -65,8 +74,21 @@ export default class Cursor {
         this.container.addEventListener('mousemove', this.event.mousemove!, { passive: true })
     }
     create() {
-        ;(this.el = document.createElement('div')), (this.el.className = this.options.className)
-        this.container.appendChild(this.el)
+        ;(this.el = document.createElement('div')),
+            (this.el.className = this.options.className),
+            (this.inner = document.createElement('div')),
+            (this.inner.className = this.options.innerClassName),
+            (this.text = document.createElement('div')),
+            (this.text.className = this.options.textClassName),
+            (this.media = document.createElement('div')),
+            (this.media.className = this.options.mediaClassName),
+            (this.mediaBox = document.createElement('div')),
+            (this.mediaBox.className = this.options.mediaBoxClassName),
+            this.media.appendChild(this.mediaBox),
+            this.inner.appendChild(this.media),
+            this.inner.appendChild(this.text),
+            this.el.appendChild(this.inner),
+            this.container.appendChild(this.el)
     }
     createSetter() {
         this.setter = {
@@ -75,10 +97,10 @@ export default class Cursor {
             rotation: gsap.quickSetter(this.el, 'rotation', 'deg'),
             scaleX: gsap.quickSetter(this.el, 'scaleX'),
             scaleY: gsap.quickSetter(this.el, 'scaleY'),
-            wc: gsap.quickSetter(this.el, 'willChange')
-            // inner: {
-            //     rotation: gsap.quickSetter(this.inner, "rotation", "deg")
-            // }
+            wc: gsap.quickSetter(this.el, 'willChange'),
+            inner: {
+                rotation: gsap.quickSetter(this.inner, 'rotation', 'deg')
+            }
         }
     }
     render(notFirst: boolean) {
@@ -92,10 +114,10 @@ export default class Cursor {
                 var e = Math.sqrt(Math.pow(this.vel.x, 2) + Math.pow(this.vel.y, 2)),
                     n = Math.min(e * this.options.skewingDelta, this.options.skewingDeltaMax) * this.skewing,
                     i = (180 * Math.atan2(this.vel.y, this.vel.x)) / Math.PI
-                console.log(e, n, i)
                 this.setter.rotation(i)
                 this.setter.scaleX(1 + n)
                 this.setter.scaleY(1 - n)
+                this.setter.inner.rotation(-i)
             }
         } else {
             this.setter.wc('auto')

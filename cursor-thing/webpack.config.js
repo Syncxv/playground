@@ -2,8 +2,8 @@ const webpack = require('webpack')
 const path = require('path')
 /** @type {import('webpack').Configuration} */
 module.exports = {
-    mode: 'development',
-    devtool: 'inline-source-map',
+    mode: 'production',
+    // devtool: 'inline-source-map',
     entry: path.resolve(__dirname, './src/ts/index.ts'),
     output: {
         path: __dirname,
