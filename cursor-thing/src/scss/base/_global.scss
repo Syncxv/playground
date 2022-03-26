@@ -1,3 +1,23 @@
 body {
-    background: #fff;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: rgb(255, 146, 146);
+    color: #000;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    letter-spacing: normal;
+    line-height: normal;
+    text-align: left;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    & > h1 {
+        font-size: 5rem;
+    }
 }
