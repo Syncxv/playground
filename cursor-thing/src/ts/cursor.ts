@@ -4,6 +4,8 @@ interface Options {
     className: string
     container: string
     overwrite: boolean
+    visible: boolean
+    hideOnLeave: boolean
     speed: number
     skewingDelta: number
     skewingDeltaMax: number
@@ -11,9 +13,18 @@ interface Options {
     textClassName: string
     mediaClassName: string
     mediaBoxClassName: string
+    hiddenState: string
+    activeState: string
+    hideTimeout: number
+    showTimeout: number
 }
 interface AllEvents {
     mousemove?: (e: MouseEvent) => any
+    mouseup?: (e: MouseEvent) => any
+    mouseleave?: (e: MouseEvent) => any
+    mouseenter?: (e: MouseEvent) => any
+    mousedown?: (e: MouseEvent) => any
+    mousemoveOnce?: (e: MouseEvent) => any
 }
 interface Setter {
     [key: string]: any
@@ -25,7 +36,7 @@ export default class Cursor {
     text: HTMLDivElement
     media: HTMLDivElement
     mediaBox: HTMLDivElement
-
+    visibleInt: NodeJS.Timeout
     options: Options
     setter: Setter
     event: AllEvents
@@ -45,8 +56,9 @@ export default class Cursor {
         this.options = opt
         this.container = document.querySelector(this.options.container)!
         this.init()
-        this.render(!0)
-        ;(this.ticker = this.render.bind(this, !1)), gsap.ticker.add(this.ticker)
+        this.render(true)
+        this.ticker = this.render.bind(this, false)
+        gsap.ticker.add(this.ticker)
     }
     init() {
         this.el || this.create()
@@ -55,6 +67,21 @@ export default class Cursor {
         this.bind()
     }
     bind() {
+        this.event.mouseleave = () => {
+            return this.hide()
+        }
+        this.event.mouseenter = () => {
+            return this.show()
+        }
+        this.event.mousedown = () => {
+            return this.addState(this.options.activeState)
+        }
+        this.event.mouseup = () => {
+            return this.removeState(this.options.activeState)
+        }
+        this.event.mousemoveOnce = () => {
+            return this.show()
+        }
         this.event.mousemove = e => {
             gsap.to(this.pos, {
                 x: e.clientX,
@@ -70,8 +97,26 @@ export default class Cursor {
                 }
             })
         }
-
-        this.container.addEventListener('mousemove', this.event.mousemove!, { passive: true })
+        this.options.hideOnLeave &&
+            this.container.addEventListener('mouseleave', this.event.mouseleave, {
+                passive: !0
+            }),
+            this.options.visible &&
+                this.container.addEventListener('mouseenter', this.event.mouseenter, {
+                    passive: !0
+                }),
+            this.container.addEventListener('mousemove', this.event.mousemove!, { passive: true })
+        this.container.addEventListener('mousedown', this.event.mousedown, {
+            passive: !0
+        })
+        this.container.addEventListener('mouseup', this.event.mouseup, {
+            passive: !0
+        })
+        this.options.visible &&
+            this.container.addEventListener('mousemove', this.event.mousemoveOnce, {
+                passive: !0,
+                once: !0
+            })
     }
     create() {
         ;(this.el = document.createElement('div')),
@@ -103,8 +148,8 @@ export default class Cursor {
             }
         }
     }
-    render(notFirst: boolean) {
-        if (notFirst || (0 !== this.vel.y && 0 !== this.vel.x)) {
+    render(first: boolean) {
+        if (first || (0 !== this.vel.y && 0 !== this.vel.x)) {
             if (
                 (this.setter.wc('transform'),
                 this.setter.x(this.pos.x),
@@ -122,5 +167,35 @@ export default class Cursor {
         } else {
             this.setter.wc('auto')
         }
+    }
+
+    show() {
+        clearInterval(this.visibleInt),
+            this.el.classList.remove(this.options.hiddenState),
+            (this.visibleInt = setTimeout(() => {
+                return (this.visible = !0)
+            }, this.options.showTimeout))
+    }
+    hide() {
+        clearInterval(this.visibleInt),
+            this.el.classList.add(this.options.hiddenState),
+            (this.visibleInt = setTimeout(() => {
+                return (this.visible = !1)
+            }, this.options.hideTimeout))
+    }
+    toggle(t: boolean) {
+        !this.visible || t ? this.show() : this.hide()
+    }
+
+    addState(t: string) {
+        var e
+        if (t === this.options.hiddenState) return this.hide()
+        ;(e = this.el.classList).add.apply(e, t.split(' '))
+    }
+
+    removeState(t: string) {
+        var e
+        if (t === this.options.hiddenState) return this.show()
+        ;(e = this.el.classList).remove.apply(e, t.split(' '))
     }
 }
