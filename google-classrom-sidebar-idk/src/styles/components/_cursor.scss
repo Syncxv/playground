@@ -1,0 +1,29 @@
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 250;
+    color: #cf1443;
+    contain: layout style size;
+    transition: opacity 0.3s, color 0.4s;
+    &.-hidden {
+        opacity: 0;
+    }
+    &.-active:before {
+        transform: scale(0.25);
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -24px;
+        left: -24px;
+        display: block;
+        width: 48px;
+        height: 48px;
+        transform: scale(0.3);
+        background: currentColor;
+        border-radius: 50%;
+        transition: transform 0.3s, opacity 0.1s;
+    }
+}
