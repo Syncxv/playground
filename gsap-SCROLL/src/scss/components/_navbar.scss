@@ -1,0 +1,27 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 2rem;
+    margin-top: 1.5rem;
+    .brand_thingy {
+        font-size: 1.8rem;
+    }
+    &__items {
+        margin: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4.5rem;
+        background-color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 227px;
+        font-size: 1.095rem;
+    }
+}
+
+.link {
+    text-decoration: none;
+    color: currentColor;
+}
