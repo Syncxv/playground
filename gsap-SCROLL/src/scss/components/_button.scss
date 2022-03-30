@@ -1,3 +1,4 @@
+@use '../base/root';
 .btn {
     position: relative;
     padding: 1em;
@@ -12,9 +13,22 @@
         overflow: hidden;
         background-color: var(--brand);
         border-radius: inherit;
-        z-index: -1;
+        & > .ripple {
+            display: none;
+            position: absolute;
+            inset: -1px;
+            background-color: #fff;
+            border-radius: inherit;
+            &.v1 {
+                background-color: lighten($color: root.$brand, $amount: 5%);
+            }
+            &.v2 {
+                background-color: lighten($color: root.$brand, $amount: 10%);
+            }
+        }
     }
     &__title {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -31,5 +45,8 @@
     }
     &.white {
         background-color: white;
+    }
+    &.big {
+        font-size: 2rem;
     }
 }
