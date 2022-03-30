@@ -62,6 +62,9 @@
         <img class="rounded-full cursor-pointer w-8 h-8" src="pfp.jpg" alt="" />
       </div>
     </nav>
-    <main class="flex 1">main sheet</main>
+    <div class="flex flex-1">
+      <aside class="flex-none w-48 bg-red-300">sidebar</aside>
+      <main class="flex 1">main sheet</main>
+    </div>
   </div>
 </template>
