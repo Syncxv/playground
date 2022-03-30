@@ -1,10 +1,10 @@
 <template>
   <div class="bg-blue-500 flex flex-col h-screen">
     <nav
-      class="flex-none flex items-center justify-between bg-gray-800 h-14 px-6 text-sm text-gray-200"
+      class="flex-none flex items-center justify-between bg-yt-700 h-14 px-6 text-sm text-gray-200"
     >
       <div class="flex items-center gap-6">
-        <Menu />
+        <IconsMenu />
         <YoutubeLogo />
       </div>
       <div class="relative flex">
@@ -14,7 +14,7 @@
           type="text"
         />
         <button class="border-none bg-gray-600 px-3">
-          <Search />
+          <IconsSearch />
         </button>
       </div>
       <div class="flex items-center gap-6">
@@ -62,9 +62,37 @@
         <img class="rounded-full cursor-pointer w-8 h-8" src="pfp.jpg" alt="" />
       </div>
     </nav>
-    <div class="flex flex-1">
-      <aside class="flex-none w-48 bg-red-300">sidebar</aside>
-      <main class="flex 1">main sheet</main>
+    <div class="flex flex-1 overflow-y-hidden">
+      <aside
+        class="flex-none overflow-y-auto w-60 bg-yt-700 text-sm text-gray-200"
+      >
+        <ul>
+          <li class="flex items-center gap-6 py-3 px-5 bg-yt-500 bg-opacity-50">
+            <IconsHome />
+            <a href="#">Home</a>
+          </li>
+          <li
+            class="flex items-center gap-6 py-3 px-5 bg-opacity-50 hover:bg-yt-500"
+          >
+            <IconsCompas />
+            <a href="#">Explore</a>
+          </li>
+          <li
+            class="flex items-center gap-6 py-3 px-5 bg-opacity-50 hover:bg-yt-500"
+          >
+            <IconsShorts />
+            <a href="#">Shorts</a>
+          </li>
+          <li
+            class="flex items-center gap-6 py-3 px-5 bg-opacity-50 hover:bg-yt-500"
+          >
+            <IconsSubscriptions />
+            <a href="#">Subscriptions</a>
+          </li>
+        </ul>
+        <div class="divider my-3 w-full h-0.1 opacity-50 bg-gray-400"></div>
+      </aside>
+      <main class="flex-1 bg-yt-800">main sheet</main>
     </div>
   </div>
 </template>
