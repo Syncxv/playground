@@ -3,7 +3,7 @@
     viewBox="0 0 90 20"
     preserveAspectRatio="xMidYMid meet"
     focusable="false"
-    class="w-28 fill-current text-white"
+    class="w-20 fill-current text-white"
   >
     <g
       viewBox="0 0 90 20"
