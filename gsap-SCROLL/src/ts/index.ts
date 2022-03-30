@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger)
 //     scrollTrigger: '.box',
 //     x: 400
 // })
-const heroTimeline = gsap.timeline({ defaults: { duration: 1 }, delay: 2 })
+const heroTimeline = gsap.timeline({ defaults: { duration: 1 }, delay: 1.2 })
 heroTimeline
     .from('.well', {
         y: 100,
