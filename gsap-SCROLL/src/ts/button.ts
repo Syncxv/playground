@@ -1,24 +1,30 @@
+import gsap from 'gsap'
+
 interface Options {
     el: Element
 }
 export class Button {
     el: Element
     fill: Element
+    hoverTl: gsap.core.Timeline
+    outTl: gsap.core.Timeline
     constructor({ el }: Options) {
         this.el = el
         this.fill = el.firstElementChild!
+        this.hoverTl = this.tlHover()
+        this.outTl = this.tlOut()
         this.bindHover()
     }
     bindHover() {
         this.el.addEventListener('mouseenter', () => {
-            this.outTl().pause(), this.hoverTl().play(0)
-        }),
-            this.el.addEventListener('mouseleave', () => {
-                this.hoverTl().pause(), this.outTl().play(0)
-            })
+            this.outTl.pause(), this.hoverTl.play(0)
+        })
+        this.el.addEventListener('mouseleave', () => {
+            this.hoverTl.pause(), this.outTl.play(0)
+        })
     }
 
-    hoverTl() {
+    tlHover() {
         const t = gsap.timeline()
         return t
             .set(this.fill, {
@@ -38,10 +44,10 @@ export class Button {
             )
     }
 
-    outTl() {
+    tlOut() {
         const t = gsap.timeline()
-        return (
-            t.set(
+        return t
+            .set(
                 this.fill,
                 {
                     scaleX: 1.03,
@@ -49,8 +55,8 @@ export class Button {
                     willChange: 'transform'
                 },
                 0
-            ),
-            t.to(
+            )
+            .to(
                 this.fill,
                 {
                     scaleX: 1,
@@ -60,11 +66,9 @@ export class Button {
                     force3D: !0
                 },
                 0
-            ),
-            //what
-            t.set(this.fill, {
+            )
+            .set(this.fill, {
                 willChange: 'auto'
             })
-        )
     }
 }
