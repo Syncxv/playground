@@ -1,17 +1,32 @@
 .btn {
+    position: relative;
     padding: 1em;
     border: none;
     border-radius: 100px;
     cursor: pointer;
     transition: color 200ms ease-out;
     background-color: transparent;
+    &__fill {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background-color: var(--brand);
+        border-radius: inherit;
+        z-index: -1;
+    }
+    &__title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     &:hover {
         color: var(--brand);
     }
     &.brand {
+        color: white;
         background-color: var(--brand);
         &:hover {
-            color: white;
+            color: rgb(238, 238, 238);
         }
     }
     &.white {
