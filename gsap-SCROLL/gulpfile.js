@@ -56,7 +56,7 @@ gulp.task('watch', () => {
     global.isWatching = true
 
     gulp.watch('./src/scss/**/*.scss', gulp.series('sass')).on('change', browserSync.reload)
-    gulp.watch('./src/ts/**/*.*', gulp.series('ts')).on('change', browserSync.reload)
+    gulp.watch('./src/ts/**/*.*', gulp.series('ts')).on('end', browserSync.reload)
     gulp.watch('./src/*.html', gulp.series('html')).on('change', browserSync.reload)
 })
 
