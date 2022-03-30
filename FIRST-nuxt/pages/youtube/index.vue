@@ -9,7 +9,7 @@
       </div>
       <div class="relative flex">
         <input
-          class="search-input bg-gray-900 outline-none p-2 w-80"
+          class="search-input bg-yt-900 outline-none p-2 w-80"
           placeholder="Search"
           type="text"
         />
