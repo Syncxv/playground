@@ -27,5 +27,7 @@ heroTimeline
 ;(window as any).heroTimeline = heroTimeline
 
 new Button({ el: document.querySelector('.btn.brand.hero-btn')! })
+new Button({ el: document.querySelector('.btn.brand')! })
 ;(window as any).Button = Button
 window.gsap = gsap
+//hi
