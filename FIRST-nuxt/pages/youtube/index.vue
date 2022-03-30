@@ -92,7 +92,7 @@
         </ul>
         <div class="divider my-3 w-full h-0.1 opacity-50 bg-gray-400"></div>
       </aside>
-      <main class="flex-1 bg-yt-800">main sheet</main>
+      <main class="flex-1 bg-yt-800 text-sm text-gray-100">main sheet</main>
     </div>
   </div>
 </template>
