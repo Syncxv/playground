@@ -14,7 +14,6 @@ interface SidebarItemProps {
 const SidebarItem: React.FC<SidebarItemProps> = ({ label, Icon, pathname, type }) => {
     const router = useRouter()
     const selected = router.pathname === pathname
-    console.log(pathname, router)
     return (
         <li
             onClick={() => router.push(pathname)}
