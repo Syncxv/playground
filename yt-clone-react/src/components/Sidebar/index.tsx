@@ -9,15 +9,18 @@ interface SidebarItemProps {
     pathname: string
     label: string
     Icon: any
+    isOpen: boolean
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({ label, Icon, pathname, type }) => {
+const SidebarItem: React.FC<SidebarItemProps> = ({ label, Icon, pathname, type, isOpen }) => {
     const router = useRouter()
     const selected = router.pathname === pathname
     return (
         <li
             onClick={() => router.push(pathname)}
-            className={`flex cursor-pointer items-center gap-6 bg-opacity-50 py-3 px-5 ${
+            className={`flex  ${
+                isOpen ? 'gap-6' : 'flex-col justify-center gap-2 text-center text-xs'
+            } cursor-pointer items-center  bg-opacity-50 py-3 px-5 ${
                 selected ? 'bg-yt-500' : 'hover:bg-yt-500'
             }`}
         >
@@ -31,27 +34,71 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ label, Icon, pathname, type }
     )
 }
 
-interface Props {}
-const Sidebar: React.FC<Props> = () => {
+interface Props {
+    isOpen: boolean
+}
+const Sidebar: React.FC<Props> = ({ isOpen }) => {
     return (
-        <aside className="scroller w-60 flex-none overflow-y-auto bg-yt-700 text-sm text-gray-200">
+        <aside
+            className={`scroller ${
+                isOpen ? 'w-60' : 'w-24'
+            } flex-none overflow-y-auto bg-yt-700 text-sm text-gray-200`}
+        >
             <ul>
-                <SidebarItem type="item" label="Home" Icon={House} pathname="/" />
-                <SidebarItem type="item" label="Explore" Icon={Compass} pathname="/explore" />
-                <SidebarItem type="item" label="Shorts" Icon={Shorts} pathname="/shorts" />
-                <SidebarItem type="item" label="Subscriptions" Icon={Folders} pathname="/subs" />
+                <SidebarItem isOpen={isOpen} type="item" label="Home" Icon={House} pathname="/" />
+                <SidebarItem isOpen={isOpen} type="item" label="Explore" Icon={Compass} pathname="/explore" />
+                <SidebarItem isOpen={isOpen} type="item" label="Shorts" Icon={Shorts} pathname="/shorts" />
+                <SidebarItem
+                    isOpen={isOpen}
+                    type="item"
+                    label="Subscriptions"
+                    Icon={Folders}
+                    pathname="/subs"
+                />
             </ul>
             <Divider />
             <ul>
-                <SidebarItem type="item" label="Library" Icon={Playlist} pathname="/library" />
-                <SidebarItem type="item" label="History" Icon={ClockCounterClockwise} pathname="/history" />
-                <SidebarItem type="item" label="Your Vidoes" Icon={PlayCircle} pathname="/videos" />
+                <SidebarItem
+                    isOpen={isOpen}
+                    type="item"
+                    label="Library"
+                    Icon={Playlist}
+                    pathname="/library"
+                />
+                <SidebarItem
+                    isOpen={isOpen}
+                    type="item"
+                    label="History"
+                    Icon={ClockCounterClockwise}
+                    pathname="/history"
+                />
+                <SidebarItem
+                    isOpen={isOpen}
+                    type="item"
+                    label="Your Vidoes"
+                    Icon={PlayCircle}
+                    pathname="/videos"
+                />
             </ul>
             <Divider />
-            <span className="py-3 px-5 font-semibold uppercase leading-loose text-yt-400">subscriptions</span>
-            {Array.from(Array(50)).map((_, i) => (
-                <SidebarItem key={i} type="sub" label="Stupit" Icon="/pfp.jpg" pathname="/videos" />
-            ))}
+
+            {isOpen && (
+                <>
+                    <span className="py-3 px-5 font-semibold uppercase leading-loose text-yt-400">
+                        subscriptions
+                    </span>
+                    {Array.from(Array(50)).map((_, i) => (
+                        <SidebarItem
+                            key={i}
+                            type="sub"
+                            isOpen={isOpen}
+                            label="Stupit"
+                            Icon="/pfp.jpg"
+                            pathname="/videos"
+                        />
+                    ))}
+                </>
+            )}
         </aside>
     )
 }
