@@ -61,10 +61,10 @@ export class Button {
                 .fromTo(
                     this.ripple,
                     {
-                        yPercent: -100
+                        xPercent: -100
                     },
                     {
-                        yPercent: 0,
+                        xPercent: 0,
                         stagger: {
                             each: 0.2
                         },
@@ -113,14 +113,14 @@ export class Button {
                 .set(
                     this.ripple,
                     {
-                        yPercent: 0
+                        xPercent: 0
                     },
                     0
                 )
                 .to(
                     this.ripple,
                     {
-                        yPercent: 100,
+                        xPercent: 100,
                         stagger: {
                             each: 0.2,
                             from: 'end'
