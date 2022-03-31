@@ -1,0 +1,11 @@
+.what {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: rgb(6, 6, 6);
+    color: white;
+    // margin-top: -1rem;
+}
