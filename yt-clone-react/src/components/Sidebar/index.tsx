@@ -35,7 +35,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ label, Icon, pathname, type }
 interface Props {}
 const Sidebar: React.FC<Props> = () => {
     return (
-        <aside className="sidebar w-60 flex-none overflow-y-auto bg-yt-700 text-sm text-gray-200">
+        <aside className="scroller w-60 flex-none overflow-y-auto bg-yt-700 text-sm text-gray-200">
             <ul>
                 <SidebarItem type="item" label="Home" Icon={House} pathname="/" />
                 <SidebarItem type="item" label="Explore" Icon={Compass} pathname="/explore" />

@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.sidebar::-webkit-scrollbar {
+.scroller::-webkit-scrollbar {
     width: 10px;
     background-color: #121212;
 }
 
-.sidebar::-webkit-scrollbar-thumb {
+.scroller::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-color: #4c4c4c;
 }
