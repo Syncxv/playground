@@ -1,12 +1,25 @@
 .hero {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 0.8rem;
-    height: 100vh;
+    height: 110vh;
     width: 100vw;
+    border-radius: 0px 0px 163px 163px;
+    background-color: white;
+    &::before {
+        content: '';
+        position: absolute;
+        height: 211px;
+        width: 100%;
+        background: black;
+        bottom: 0;
+        z-index: -1;
+    }
     &__text {
+        perspective: 1000px;
         text-align: center;
         font-size: 5rem;
         width: 39ch;
