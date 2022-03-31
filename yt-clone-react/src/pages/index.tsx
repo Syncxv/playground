@@ -8,6 +8,7 @@ const Home: NextPage = () => {
             <div className="all-shit grid grid-cols-auto-fit place-content-center justify-items-center gap-10 p-8">
                 {Array.from(Array(20)).map((_, i) => (
                     <VideoCard
+                        key={i}
                         video={{
                             title: 'The Heap: what does malloc() do? - bin 0x14',
                             thumbnail: '/liveoverflow.jpg',
