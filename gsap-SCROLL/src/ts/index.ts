@@ -7,9 +7,11 @@ gsap.registerPlugin(ScrollTrigger)
 //     scrollTrigger: '.box',
 //     x: 400
 // })
-const heroTimeline = gsap.timeline({ defaults: { duration: 1 }, delay: 1.2 })
+const heroTimeline = gsap.timeline({ defaults: { duration: 1 } })
 heroTimeline
     .from('.well', {
+        transform:
+            'translate(0%, 90.5334%) translate3d(0px, 0px, 0px) rotateX(-54.32deg) skew(0deg, 1.8107deg) scale(0.8189, 0.818933)',
         y: 100,
         opacity: 0,
         stagger: 0.15,
@@ -26,8 +28,7 @@ heroTimeline
     )
 ;(window as any).heroTimeline = heroTimeline
 
-new Button({ el: document.querySelector('.btn.brand.hero-btn')! })
-new Button({ el: document.querySelector('.btn.brand')! })
+document.querySelectorAll('.btn.brand').forEach(s => new Button({ el: s }))
 ;(window as any).Button = Button
 window.gsap = gsap
 //hi
