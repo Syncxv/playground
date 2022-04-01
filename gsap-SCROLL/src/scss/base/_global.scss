@@ -10,6 +10,7 @@ body {
     line-height: normal;
     text-align: left;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 .container {
@@ -26,4 +27,8 @@ body {
     width: 200px;
     aspect-ratio: 1 / 1;
     background-color: red;
+}
+
+.perspective {
+    perspective: 1000px;
 }
