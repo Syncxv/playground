@@ -1,17 +1,33 @@
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import { Button } from './button'
-
+const textTransformTHingy =
+    'translate(0%, 94.7199%) translate3d(0px, 0px, 0px) rotateX(-56.8319deg) skew(0deg, 1.8944deg) scale(0.8106, 0.81056)'
 gsap.registerPlugin(ScrollTrigger)
-// gsap.to('.box', {
-//     scrollTrigger: '.box',
-//     x: 400
-// })
-const heroTimeline = gsap.timeline({ defaults: { duration: 1 } })
+const textAnimation = (target: string, vars?: gsap.TweenVars) => {
+    gsap.set(target, {
+        transform: textTransformTHingy,
+        opacity: 0,
+        willChange: 'transform'
+    })
+    gsap.to(target, {
+        ...(vars || {}),
+        scrollTrigger: {
+            trigger: target,
+            start: 'top bottom'
+        },
+        duration: 2.3,
+        stagger: 0.15,
+        ease: 'expo.out',
+        opacity: 1,
+        transform: 'translate(0px, 0px)',
+        willChange: 'auto'
+    })
+}
+const heroTimeline = gsap.timeline({ defaults: { duration: 2.3 } })
 heroTimeline
     .from('.well', {
-        transform:
-            'translate(0%, 90.5334%) translate3d(0px, 0px, 0px) rotateX(-54.32deg) skew(0deg, 1.8107deg) scale(0.8189, 0.818933)',
+        transform: textTransformTHingy,
         y: 100,
         opacity: 0,
         stagger: 0.15,
@@ -24,11 +40,16 @@ heroTimeline
             opacity: 0,
             ease: 'expo.out'
         },
-        '-=0.7'
+        '-=1.5'
     )
-;(window as any).heroTimeline = heroTimeline
+textAnimation('.sheesh')
+textAnimation('.hi', { delay: 0.2 })
+textAnimation('.hi2')
+textAnimation('.hi3')
 
 document.querySelectorAll('.btn.brand').forEach(s => new Button({ el: s }))
+;(window as any).heroTimeline = heroTimeline
 ;(window as any).Button = Button
+;(window as any).textTransformTHingy = textTransformTHingy
 window.gsap = gsap
 //hi
