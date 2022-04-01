@@ -2,11 +2,12 @@ import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import { Button } from './button'
 const textTransformTHingy =
-    'translate(0%, 94.7199%) translate3d(0px, 0px, 0px) rotateX(-56.8319deg) skew(0deg, 1.8944deg) scale(0.8106, 0.81056)'
+    'translate3d(0px, 0px, 0px) rotateX(-56.8319deg) skew(0deg, 1.8944deg) scale(0.8106, 0.81056)'
 gsap.registerPlugin(ScrollTrigger)
 const textAnimation = (target: string, vars?: gsap.TweenVars) => {
     gsap.set(target, {
         transform: textTransformTHingy,
+        y: 200,
         opacity: 0,
         willChange: 'transform'
     })
@@ -19,6 +20,7 @@ const textAnimation = (target: string, vars?: gsap.TweenVars) => {
         duration: 2.3,
         stagger: 0.15,
         ease: 'expo.out',
+        y: 0,
         opacity: 1,
         transform: 'translate(0px, 0px)',
         willChange: 'auto'
