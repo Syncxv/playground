@@ -19,6 +19,12 @@ the framerate is kinda garbge for gifs but its smoother on the website HEHHEHE H
 
 # Cursor thingy
 also from cuberto 
+
 ![hehheha](https://i.imgur.com/WVa2Jhq.gif)
 
 ---
+
+# Google classroom sidebar and navbar
+idk i felt like making my version HEHE
+
+![:|](https://i.imgur.com/FeWTrpP.gif)
