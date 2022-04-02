@@ -14,3 +14,11 @@ cuberto just hits different :)
 the framerate is kinda garbge for gifs but its smoother on the website HEHHEHE HA
 
 ![idk](https://i.imgur.com/5zdpmBP.gif)
+
+---
+
+# Cursor thingy
+also from cuberto 
+![hehheha](https://i.imgur.com/WVa2Jhq.gif)
+
+---
