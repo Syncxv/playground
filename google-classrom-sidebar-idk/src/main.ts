@@ -1,25 +1,25 @@
-import Cursor from './cursor'
+// import Cursor from './cursor'
 import './styles/_main.scss'
 
-const cursor = new Cursor({
-    container: 'body',
-    className: 'pt-cursor',
-    overwrite: true,
-    speed: 0.4,
-    skewingDelta: 0.001,
-    skewingDeltaMax: 0.15,
-    innerClassName: 'pt-cursor-inner',
-    mediaClassName: 'pt-cursor-media',
-    mediaBoxClassName: 'pt-media-box',
-    textClassName: 'pt-cursor-text',
-    hideTimeout: 300,
-    showTimeout: 20,
-    hiddenState: '-hidden',
-    activeState: '-active',
-    visible: true,
-    hideOnLeave: true
-})
-console.log(cursor)
+// const cursor = new Cursor({
+//     container: 'body',
+//     className: 'pt-cursor',
+//     overwrite: true,
+//     speed: 0.4,
+//     skewingDelta: 0.001,
+//     skewingDeltaMax: 0.15,
+//     innerClassName: 'pt-cursor-inner',
+//     mediaClassName: 'pt-cursor-media',
+//     mediaBoxClassName: 'pt-media-box',
+//     textClassName: 'pt-cursor-text',
+//     hideTimeout: 300,
+//     showTimeout: 20,
+//     hiddenState: '-hidden',
+//     activeState: '-active',
+//     visible: true,
+//     hideOnLeave: true
+// })
+// console.log(cursor)
 const menuButton = document.querySelector<HTMLButtonElement>('.menu-button')!
 const bruh = document.querySelector<HTMLButtonElement>('.bruh')!
 const sidebar = document.querySelector<HTMLDivElement>('.sidebar')!

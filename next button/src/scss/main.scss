@@ -1,0 +1,12 @@
+@forward 'btn';
+
+body {
+    background-color: #262428;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}

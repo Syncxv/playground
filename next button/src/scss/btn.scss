@@ -1,0 +1,58 @@
+.btn {
+    --scale: 1.25rem;
+    --margin: calc(var(--scale) + 3%);
+    position: relative;
+    padding: 1.2em 2.5em;
+    border-radius: 999px;
+    cursor: pointer;
+    border: none;
+    font-size: var(--scale);
+    background-color: #3e3c41;
+    box-shadow: -0.45px -0.45px 0 #ffffff7a;
+    color: #9b9e9b;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    &:hover {
+        .text {
+            color: white;
+            transform: translateX(calc(var(--margin) * -1));
+        }
+        .contents {
+            .cicle-thing {
+                left: calc((100% - var(--width)) - (var(--margin) - var(--margin) / 2));
+            }
+        }
+    }
+    .contents {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .cicle-thing {
+            --width: 20%;
+            transition: 1s cubic-bezier(0.63, -0.05, 0.17, 1);
+
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+            left: calc(var(--margin) - var(--margin) / 2);
+            width: 20%;
+            aspect-ratio: 1 / 1;
+            background-color: #0bfd58;
+            border-radius: 99999px;
+            color: black;
+            // transform: translateX(-145%);
+            z-index: 2;
+            & > svg {
+                height: 32px;
+                width: 32px;
+            }
+        }
+    }
+    .text {
+        transition: 1s cubic-bezier(0.63, -0.05, 0.17, 1);
+
+        transform: translateX(var(--margin));
+        z-index: 1;
+    }
+}
