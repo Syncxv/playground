@@ -1,6 +1,10 @@
 # PLAYGROUND
 hi there
 
+# Bruh Moment
+i didnt like the desgin i made so i didnt animate it
+![bruh](assets-for-read-me/bruh-moment.png)
+
 # Three hover
 ![how](assets-for-read-me/chrome_y3SMt4Sox3.gif)
 
