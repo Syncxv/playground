@@ -1,0 +1,8 @@
+@mixin toRem($property, $value) {
+	#{$property}: calc($value / 16) + rem;
+}
+
+@function to_rem($value) {
+	$remValue: calc($value / 16) + rem;
+	@return $remValue;
+}
