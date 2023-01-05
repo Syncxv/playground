@@ -1,7 +1,8 @@
-# scss-stuff
-SCSS GOES HARD
+# PLAYGROUND
+hi there
 
-
+# Three hover
+![how](assets-for-read-me/chrome_y3SMt4Sox3.gif)
 
 # Youtube Ui Clone kinda idk
 ![well](assets-for-read-me/yt-clone.gif)
